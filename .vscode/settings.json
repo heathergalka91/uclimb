@@ -1,5 +1,5 @@
 {
-    "omnisharp.useEditorFormattingSettings": false,
+    "omnisharp.useEditorFormattingSettings": true,
     "omnisharp.sdkIncludePrereleases": false,
     "omnisharp.enableEditorConfigSupport": false,
     "markdown.preview.linkify": false
