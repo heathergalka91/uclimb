@@ -12,7 +12,7 @@ export default function HomePage() {
         </Header>
         <Header a="h2" inverted context="Wellcome to uclimb.com" />
         <Button as={Link} to="/activities" size="huge" inverted>
-          Take me there
+          Show me
         </Button>
       </Container>
     </Segment>

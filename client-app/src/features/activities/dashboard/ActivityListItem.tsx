@@ -41,7 +41,7 @@ export default function ActivityListItem({ a }: Props) {
       <Segment secondary>Attendies go here</Segment>
       <Segment clearing>
         <span>{a.description}</span>
-        <Button as={Link} to={`/activities/${a.id}`} floated="right" color="teal" content="View" />
+        <Button as={Link} to={`/activities/${a.id}`} floated="right" color="purple" content="View" />
       </Segment>
     </Segment.Group>
   );

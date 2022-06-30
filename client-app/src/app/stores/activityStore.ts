@@ -4,7 +4,7 @@ import { Activity } from "../models/activity";
 
 export default class ActivityStore {
   activityRegistry = new Map<string, Activity>();
-  selectedActivity: Activity = undefined;
+  selectedActivity: Activity | undefined = undefined;
   editMode = false;
   loading = false;
   loadingInitial = false;

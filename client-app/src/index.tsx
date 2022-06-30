@@ -1,23 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'react-calendar/dist/Calendar.css'
-import './app/layout/styles.css';
-import App from './app/layout/App';
-import reportWebVitals from './reportWebVitals';
-import { Grid } from 'semantic-ui-react';
-import { store, StoreContext } from './app/stores/store';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "react-calendar/dist/Calendar.css";
+import "react-toastify/dist/ReactToastify.min.css";
+import "./app/layout/styles.css";
+import App from "./app/layout/App";
+import reportWebVitals from "./reportWebVitals";
+import { Grid } from "semantic-ui-react";
+import { store, StoreContext } from "./app/stores/store";
+import { Router } from "react-router-dom";
+import {createBrowserHistory} from 'history';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+export const history = createBrowserHistory();
+
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-    <StoreContext.Provider value={store}>
-      <BrowserRouter>
+  <StoreContext.Provider value={store}>
+    <Router history={history}>
       <App />
-      </BrowserRouter>
-    </StoreContext.Provider>
-
+    </Router>
+  </StoreContext.Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

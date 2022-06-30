@@ -18,6 +18,7 @@ export default function NavBar({}: Props) {
                 uclimb.com
             </Menu.Item>
             <Menu.Item as={NavLink} to='/activities' name="Activities"/>
+            <Menu.Item as={NavLink} to='/errors' name="Errors"/>
             <Menu.Item as={NavLink} to='/createActivity'>
                 <Button positive content="Create Activity" />
             </Menu.Item>
