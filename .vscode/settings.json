@@ -1,6 +1,7 @@
 {
     "omnisharp.useEditorFormattingSettings": true,
     "omnisharp.sdkIncludePrereleases": false,
-    "omnisharp.enableEditorConfigSupport": false,
-    "markdown.preview.linkify": false
+    "markdown.preview.linkify": false,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.enableEditorConfigSupport": true
 }
