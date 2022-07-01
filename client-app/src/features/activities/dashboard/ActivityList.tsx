@@ -10,7 +10,7 @@ interface Props {}
 export default observer(function ActivityList({}: Props) {
   const { activityStore } = useStore();
 
-  if(activityStore.loadingInitial) return <LoadingComponent/>
+  if(activityStore.loadingInitial) return <LoadingComponent content='Loading Activties...'/>
 
   return (
     <>
