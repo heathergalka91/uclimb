@@ -19,8 +19,9 @@ export default observer(function HomePage() {
             className='mainLogo'
             style={{ marginBottom: 12 }}
           />
-          uclimb.com
+          uclimb.com 
         </Header>
+        
         {userStore.isLoggedIn ? (
           <>
             <Header a='h2' inverted context='Wellcome to uclimb.com' />
@@ -32,7 +33,7 @@ export default observer(function HomePage() {
           <>
             <Button
               onClick={() => modalStore.openModal(<LoginForm />)}
-              size='huge'
+              size='huge'   
               style={{ color: "#8c266c" }}
             >
               Login

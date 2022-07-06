@@ -41,3 +41,9 @@ body {
 }
 
 /*end home page styles*/
+
+/*ADMIN STYLES*/
+.adminTable{
+  color: #e28eff !important;
+}
+/*END ADMIN STYLES*/
