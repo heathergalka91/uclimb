@@ -12,7 +12,7 @@ import MyTextArea from "../../../app/common/form/MyTextArea";
 import MySelectInput from "../../../app/common/form/MySelectInput";
 import { categoryOptions } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
-import { Activity } from "../../../app/models/activity";
+import { Activity, ActivityFormValues } from "../../../app/models/activity";
 
 interface Props {}
 
@@ -22,15 +22,7 @@ export default observer(function ActivityForm({}: Props) {
   const { createActivity, updateActivity, loading } = activityStore;
   const { id } = useParams<{ id: string }>();
 
-  const [activity, setActivity] = useState<Activity>({
-    id: "",
-    title: "",
-    category: "",
-    description: "",
-    date: null,
-    city: "",
-    venue: "",
-  });
+  const [activity, setActivity] = useState<ActivityFormValues>(new ActivityFormValues());
 
   const validationSchema = Yup.object({
     title: Yup.string().required("The activity title is required"),
@@ -47,8 +39,8 @@ export default observer(function ActivityForm({}: Props) {
     }
   }, [id, activityStore.loadActivity]);
 
-  function handleFormSubmit(activity: Activity) {
-    if (activity.id.length === 0) {
+  function handleFormSubmit(activity: ActivityFormValues) {
+    if (!activity.id) {
       let newActivity = {
         ...activity,
         id: uuid(),
@@ -102,7 +94,7 @@ export default observer(function ActivityForm({}: Props) {
               type="submit"
               content="Submit"
               onClick={() => handleSubmit}
-              loading={loading}
+              loading={isSubmitting}
             />
             <Button as={Link} to="/activities" floated="right" type="button" content="Cancel" />
           </Form>

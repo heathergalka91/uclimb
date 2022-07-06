@@ -3,7 +3,7 @@ import { arrayExtensions } from "mobx/dist/internal";
 import { config } from "process";
 import { toast } from "react-toastify";
 import { history } from "../..";
-import { Activity } from "../models/activity";
+import { Activity, ActivityFormValues } from "../models/activity";
 import { User, UserFormvalues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -74,11 +74,12 @@ const Activities = {
     return requests.get<Activity[]>("/activities");
   },
   details: (id: string) => requests.get<Activity>(`/activities/${id}`),
-  create: (activity: Activity) => requests.post<Activity>("/activities", activity),
-  update: (activity: Activity) => requests.put<Activity>(`/activities/${activity.id}`, activity),
+  create: (activity: ActivityFormValues) => requests.post<Activity>("/activities", activity),
+  update: (activity: ActivityFormValues) => requests.put<Activity>(`/activities/${activity.id}`, activity),
   delete: (id: string) => requests.delete<void>(`/activities/${id}`),
+  attend: (id: string) => requests.post<void>(`/activities/${id}/attend`, {}),
 };
-
+ 
 const Account = {
   current: () => requests.get<User>('/account'),
   login: (user: UserFormvalues) => requests.post<User>('/account/login', user),
