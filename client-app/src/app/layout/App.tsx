@@ -16,6 +16,7 @@ import ServerError from "../../features/errors/ServerError";
 import LoginForm from "../../features/users/LoginForm";
 import ModalContainer from "../common/modals/ModalContainer";
 import AdminHome from "../../features/admin/AdminHome";
+import ProfilePage from "../../features/profile/ProfilePage";
 
 function App() {
   const location = useLocation();
@@ -55,6 +56,7 @@ function App() {
                     path={["/createActivity", "/manage/:id"]}
                     component={ActivityForm}
                   />
+                  <Route path='/profiles/:username' component={ProfilePage} />
                   <Route path='/errors' component={TestErrors} />
                   <Route path='/server-error' component={ServerError} />
                   <Route path='/login' component={LoginForm} />
