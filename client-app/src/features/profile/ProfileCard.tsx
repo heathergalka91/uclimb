@@ -1,3 +1,4 @@
+import { truncate } from "fs";
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -9,15 +10,19 @@ interface Props {
 }
 
 export default observer(function ProfileCard({ profile }: Props) {
+  function truncate(str: string | undefined) {
+    if (str) return str.length > 40 ? str.substring(0, 37) + "..." : str;
+  }
+
   return (
     <Card as={Link} to={`/profiles/${profile.username}`}>
       <Image src={profile.image || "/assets/user.png"} />
       <Card.Content>
         <Card.Header>{profile.displayName}</Card.Header>
-        <Card.Description>BIO GOES HERE</Card.Description>
+        <Card.Description>{truncate(profile.bio)}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Icon name='user'>20 follers</Icon>
+        <Icon name='user'> {profile.followersCount}followers</Icon>
       </Card.Content>
     </Card>
   );

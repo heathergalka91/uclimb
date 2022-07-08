@@ -18,26 +18,29 @@ export default observer(function ActivityDetails({}: Props) {
     selectedActivity: activity,
     loadActivity,
     loadingInitial,
+    clearSelectedActivity,
   } = activityStore;
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     if (id) loadActivity(id);
+    return () => {
+      clearSelectedActivity();
+    };
   }, [id, loadActivity]);
 
-  if (loadingInitial || !activity)
-    return <LoadingComponent content={"Loading..."} />;
+  if (loadingInitial || !activity) return <LoadingComponent content={"Loading..."} />;
 
   return (
-      <Grid>
-        <Grid.Column width={10}>
-          <ActivityDetailedHeader activity={activity} />
-          <ActiviyDetailedInfo activity={activity}/>
-          <ActivityDetailedChat />
-        </Grid.Column>
-        <Grid.Column width={6}>
-          <ActivityDetailedSidebar activity={activity} />
-        </Grid.Column>
-      </Grid>
+    <Grid>
+      <Grid.Column width={10}>
+        <ActivityDetailedHeader activity={activity} />
+        <ActiviyDetailedInfo activity={activity} />
+        <ActivityDetailedChat activityId={activity.id} />
+      </Grid.Column>
+      <Grid.Column width={6}>
+        <ActivityDetailedSidebar activity={activity} />
+      </Grid.Column>
+    </Grid>
   );
 });
