@@ -5,7 +5,7 @@ import { config } from "process";
 import { toast } from "react-toastify";
 import { history } from "../..";
 import { Activity, ActivityFormValues } from "../models/activity";
-import { Photo, Profile } from "../models/profile";
+import { Photo, Profile, ProfileFormValues } from "../models/profile";
 import { User, UserFormvalues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -101,6 +101,7 @@ const Profiles = {
   },
   setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
   deletePhoto: (id: string) => requests.delete(`/photos/${id}`),
+  updateProfile: (profile: ProfileFormValues) => requests.post(`/profiles/${store.userStore.user?.username}`, profile),
 };
 
 const agent = {

@@ -21,3 +21,9 @@ export interface Photo {
   url: string;
   isMain: boolean;
 }
+
+export interface ProfileFormValues
+{
+  bio: string;
+  displayName: string;
+}
