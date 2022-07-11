@@ -6,7 +6,7 @@ using FluentValidation;
 
 namespace Application.Profiles
 {
-  public class ProfileValidator : AbstractValidator<Profile>
+  public class ProfileValidator : AbstractValidator<ProfileDto>
   {
     public ProfileValidator()
     {

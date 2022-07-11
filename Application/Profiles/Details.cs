@@ -16,12 +16,12 @@ namespace Application.Profiles
 {
   public class Details
   {
-    public class Query : IRequest<Result<Profile>>
+    public class Query : IRequest<Result<ProfileDto>>
     {
       public string Username { get; set; }
     }
 
-    public class Handler : IRequestHandler<Query, Result<Profile>>
+    public class Handler : IRequestHandler<Query, Result<ProfileDto>>
     {
       private readonly DataContext _context;
       private readonly IMapper _mapper;
@@ -33,14 +33,14 @@ namespace Application.Profiles
         _context = context;
       }
 
-      public async Task<Result<Profile>> Handle(Query request, CancellationToken cancellationToken)
+      public async Task<Result<ProfileDto>> Handle(Query request, CancellationToken cancellationToken)
       {
         var user = await _context.Users
-            .ProjectTo<Profile>(_mapper.ConfigurationProvider, new {username = _userAccessor.GetUsername()})
+            .ProjectTo<ProfileDto>(_mapper.ConfigurationProvider, new {username = _userAccessor.GetUsername()})
             .SingleOrDefaultAsync(f => f.Username == request.Username);
 
         if (user == null) return null;
-        return Result<Profile>.Success(user);
+        return Result<ProfileDto>.Success(user);
       }
     }
   }

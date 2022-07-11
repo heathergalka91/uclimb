@@ -16,7 +16,7 @@ namespace API.Controllers
     }
 
     [HttpPost("{username}")]
-    public async Task<IActionResult> EditProfile(Profile profile)
+    public async Task<IActionResult> EditProfile(ProfileDto profile)
     {
       return HandleResult(await Mediator.Send(new Edit.Command { Profile = profile }));
     }

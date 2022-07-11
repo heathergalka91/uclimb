@@ -10,6 +10,9 @@ namespace Domain
   {
     public string DisplayName { get; set; }
     public string Bio { get; set; }
+    public string Pronouns { get; set; }
+    public string Gender { get; set; }
+    public ICollection<Interest> Interests { get; set; }
     public ICollection<ActivityAttendee> Activities { get; set; }
     public ICollection<Photo> Photos { get; set; }
     public ICollection<UserFollowing> Followings { get; set; }

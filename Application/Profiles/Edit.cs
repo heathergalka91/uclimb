@@ -17,7 +17,7 @@ namespace Application.Profiles
   {
     public class Command : IRequest<Result<Unit>>
     {
-      public Profile Profile { get; set; }
+      public ProfileDto Profile { get; set; }
     }
 
     public class CommandValidator : AbstractValidator<Command>

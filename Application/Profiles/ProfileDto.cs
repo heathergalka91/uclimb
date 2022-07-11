@@ -6,11 +6,14 @@ using Domain;
 
 namespace Application.Profiles
 {
-    public class Profile
+    public class ProfileDto
     {
         public string Username { get; set; }
         public string DisplayName { get; set; }
         public string Bio { get; set; }
+        public string Pronouns { get; set; }
+        public string Gender { get; set; }
+        public ICollection<Interest> Interests {get; set;}
         public string Image { get; set; }
         public bool Following { get; set; }
         public int FollowersCount { get; set; }
