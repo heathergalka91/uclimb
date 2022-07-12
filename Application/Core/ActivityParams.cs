@@ -9,6 +9,8 @@ namespace Application.Core
     {
         public bool IsGoing { get; set; }
         public bool IsHost { get; set; }
+        public bool IsPast { get; set; }
+        public bool IsFuture { get; set; }
         public DateTime StartDate  { get; set; } = DateTime.UtcNow;
     }
 }

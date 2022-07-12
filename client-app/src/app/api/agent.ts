@@ -8,6 +8,7 @@ import { Activity, ActivityFormValues } from "../models/activity";
 import { PaginatedResult } from "../models/pagination";
 import { Photo, Profile, ProfileFormValues } from "../models/profile";
 import { User, UserFormvalues } from "../models/user";
+import { UserActivity } from "../models/userActivity";
 import { store } from "../stores/store";
 
 const sleep = (delay: number) => {
@@ -16,7 +17,7 @@ const sleep = (delay: number) => {
   });
 };
 
-axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.request.use((config) => {
   const token = store.commonStore.token;
@@ -26,7 +27,8 @@ axios.interceptors.request.use((config) => {
 
 axios.interceptors.response.use(
   async (response) => {
-    await sleep(1000);
+    if(process.env.NODE_ENV === 'development') await sleep(1000);
+    
     const pagination = response.headers["pagination"];
     if (pagination) {
       response.data = new PaginatedResult(response.data, JSON.parse(pagination));
@@ -111,6 +113,8 @@ const Profiles = {
   updateFollowing: (username: string) => requests.post(`/follow/${username}`, {}),
   listFollowings: (username: string, predicate: string) =>
     requests.get<Profile[]>(`/follow/${username}?predicate=${predicate}`),
+  activities: (params: URLSearchParams) => 
+    axios.get<UserActivity[]>(`/profiles/${store.profileStore.profile?.username}/activities`, {params}).then(responseBody),
 };
 
 const agent = {

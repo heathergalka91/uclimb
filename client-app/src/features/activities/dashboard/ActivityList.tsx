@@ -8,7 +8,7 @@ import ActivityListItem from "./ActivityListItem";
 interface Props {}
 
 export default observer(function ActivityList({}: Props) {
-  const { activityStore}= useStore();
+  const {activityStore}= useStore();
 
 
   return (

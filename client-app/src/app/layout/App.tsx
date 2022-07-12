@@ -17,6 +17,7 @@ import LoginForm from "../../features/users/LoginForm";
 import ModalContainer from "../common/modals/ModalContainer";
 import AdminHome from "../../features/admin/AdminHome";
 import ProfilePage from "../../features/profile/ProfilePage";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const location = useLocation();
@@ -37,7 +38,7 @@ function App() {
       <Route path='/' exact component={HomePage} />
       <ModalContainer />
       <Switch>
-        <Route
+        <PrivateRoute
           path={"/admin/"}
           component={AdminHome}
         />
@@ -49,17 +50,15 @@ function App() {
               <NavBar />
               <Container style={{ marginTop: "7em" }}>
                 <Switch>
-                  <Route path='/activities' exact component={ActivityDashboard} />
+                  <PrivateRoute path='/activities' exact component={ActivityDashboard} />
                   <Route path='/activities/:id' component={ActivityDetails} />
-                  <Route
+                  <PrivateRoute
                     key={location.key}
                     path={["/createActivity", "/manage/:id"]}
                     component={ActivityForm}
                   />
-                  <Route path='/profiles/:username' component={ProfilePage} />
-                  <Route path='/errors' component={TestErrors} />
+                  <PrivateRoute path='/profiles/:username' component={ProfilePage} />
                   <Route path='/server-error' component={ServerError} />
-                  <Route path='/login' component={LoginForm} />
                   <Route component={NotFound} />
                 </Switch>
               </Container>

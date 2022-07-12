@@ -50,6 +50,14 @@ export default class ActivityStore {
         resetPredicate();
         this.predicate.set("isHost", true);
         break;
+      case "isPast":
+        resetPredicate();
+        this.predicate.set("isPast", true);
+        break;
+      case "isFuture":
+        resetPredicate();
+        this.predicate.set("isFuture", true);
+        break;
       case "startDate":
         this.predicate.delete("startDate");
         this.predicate.set("startDate", value);
