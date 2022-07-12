@@ -8,9 +8,8 @@ import ActivityListItem from "./ActivityListItem";
 interface Props {}
 
 export default observer(function ActivityList({}: Props) {
-  const { activityStore } = useStore();
+  const { activityStore}= useStore();
 
-  if(activityStore.loadingInitial) return <LoadingComponent content='Loading Activties...'/>
 
   return (
     <>
