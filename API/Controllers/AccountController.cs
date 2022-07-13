@@ -108,7 +108,7 @@ namespace API.Controllers
     }
 
     [AllowAnonymous]
-    [HttpGet("verifyEmail")]
+    [HttpPost("verifyEmail")]
     public async Task<IActionResult> VerifyEmail(string token, string email)
     {
       var user = await _userManager.FindByEmailAsync(email);
