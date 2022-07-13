@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "API\api.csproj", "{D98113BF-27EF-4333-B8E9-E8D34BD1C0AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "API\API.csproj", "{D98113BF-27EF-4333-B8E9-E8D34BD1C0AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{AA3193A1-FF99-4B1E-8E66-21DC2E0AF2EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{6263628D-EED9-4BC1-80E9-40BB449688C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "domain\Domain.csproj", "{1D649264-FABD-4A95-9791-2C5A6E9A6C68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{1D649264-FABD-4A95-9791-2C5A6E9A6C68}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{B33EB169-C6C8-4E1A-9FCE-408E9C38F231}"
 EndProject
